@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Spotify</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="logo.png" alt="spotify"/>Spotify</li>
+            <li><a href = "" id="appear-com">Home</a></li>
+            <li><a href = "" id="appear-mob"><i class="fa-solid fa-house"></i></a></li>
+            <li id="margin-left"><a href=""><i class="fa-solid fa-magnifying-glass search-icon"></i></a><a href=""><span id="none"> Search</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div class="song-list">
+        <h1>Best of NCS - No Copyright Sounds</h1>
+        <div class="songitem-container">
+            <div class="song-item">
+                <img alt="10"/>
+                <span class="song-name">Warriyo </span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">04:23</span> <i id = "1" class="fa-solid songitemplay fa-circle-play active" style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="2.jpg" alt="10"/>
+                <span class="song-name">cielo - Huma-Huma</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">02:34</span> <i id = "2" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="3.jpg" alt="10"/>
+                <span class="song-name">DEAF kEV - Invisiable[NCS Release]-320k</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:53</span> <i id = "3" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="4.jpg" alt="10"/>
+                <span class="song-name">Different Heaven & EH!DE - My Heart [NCS Release]-320k</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">02:36</span> <i id = "4" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="5.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">02:57</span> <i id = "5" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="6.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:05</span> <i id = "6" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="7.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:51</span> <i id = "7" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="8.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:03</span> <i id = "8" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="9.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:13</span> <i id = "9" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+            <div class="song-item">
+                <img src="10.jpg" alt="10"/>
+                <span class="song-name">Let me Love You</span>
+                <span class="songlistplay"><span class="time-stamp"><span class="disable">03:46</span> <i id = "10" class="fa-solid songitemplay fa-circle-play " style="color: #1ac152;"></i></span></span>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="song-banner"></div>
+    </div>
+
+    <div class="bottom">
+        <input type="range" min="0" max="100" name="range" id="progress-bar" value="0" />
+        <div class="icons">
+            <i id="previous" class="fa-solid  fa-2x fa-backward-step" style="color: #dedede;"></i>
+            <i class="fa-solid  fa-3x fa-circle-play fa-beat" id="masterplay" style="color: #1ac152;"></i>
+            <i id="next" class="fa-solid  fa-2x fa-forward-step" style="color: #dedede;"></i>
+            
+        </div>
+        <div class="loop">
+            <i id="repeat"  class="fa-sharp fa-solid color-change fa-2x fa-repeat" style="color: #f5faf5; "></i> 
+        </div>
+        <div class="song-info">
+            <img src="playing.gif" alt="gif missing" width="42px" id="gif"/> <span id="mastersongkey"> </span>
+        </div>
+        <div class="timerupdate" id="timerupdates">
+
+        </div>
+        <div class="durationofsong" id="durationofsongs">
+                
+        </div>
+    </div>
+
+    
+
+    <script src="https://kit.fontawesome.com/263c7a0078.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

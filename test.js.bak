@@ -1,0 +1,214 @@
+// initialize the variables
+var songIndex= 0
+var audioElement= new Audio("1.mp3")
+var masterPlay = document.getElementById("masterplay");
+var progressBar = document.getElementById("progress-bar");
+var gif = document.getElementById('gif');
+var songItem = Array.from (document.getElementsByClassName('song-item'))
+var mastersongkey = document.getElementById('mastersongkey');
+var songitemplay = Array.from(document.getElementsByClassName("songitemplay"));
+
+let songs = [
+    {songName:"Warriyo - Mortals (feat .Laura Brehm)[NCS Release]",filePath:"1.mp3",coverPath:"1.jpg",duration:"05:34"},
+    {songName:"cielo - Huma-Huma",filePath:"2.mp3",coverPath:"2.jpg",duration:"05:34"},
+    {songName:"DEAF kEV - Invisiable[NCS Release]-320k",filePath:"3.mp3",coverPath:"3.jpg",duration:"05:34"},
+    {songName:"Different Heaven & EH!DE - My Heart [NCS Release]-320k",filePath:"4.mp3",coverPath:"4.jpg",duration:"05:34"},
+    {songName:"Let me Love Y - Justin Beiber",filePath:"5.mp3",coverPath:"5.jpg",duration:"05:34"},
+    {songName:"Let me Love  - Justin Beiber",filePath:"6.mp3",coverPath:"6.jpg",duration:"05:34"},
+    {songName:"Let me L - Justin Beiber",filePath:"7.mp3",coverPath:"7.jpg",duration:"05:34"},
+    {songName:"Let m - Justin Beiber",filePath:"8.mp3",coverPath:"8.jpg",duration:"05:34"},
+    {songName:"Let  - Justin Beiber",filePath:"9.mp3",coverPath:"9.jpg",duration:"05:34"},
+    {songName:"Let me go - Justin Beiber",filePath:"10.mp3",coverPath:"10.jpg",duration:"05:34"},
+
+]
+
+songItem.forEach((element,i)=>{
+
+    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+   element.getElementsByClassName("song-name")[0].innerText = songs[i].songName;
+    // element.getElementsByClassName("time-stamp")[0].innerText = songs[i].duration;
+    
+
+
+})
+
+// Handle play and pause play
+
+masterPlay.addEventListener("click",()=>
+{ if(audioElement.paused||audioElement.currentTime<=0){
+    audioElement.play();
+    masterPlay.classList.remove('fa-circle-play');
+    masterPlay.classList.add('fa-circle-pause');
+   var classlisting = document.getElementsByClassName("active")[0];
+    
+   classlisting.classList.remove('fa-circle-play');
+   classlisting.classList.add('fa-circle-pause');
+    songitemplay.forEach((element,i)=>{
+
+       
+        // element.classList.remove('fa-circle-play');
+        // element.classList.add('fa-circle-pause');
+})
+    gif.style.opacity = 1;
+
+}else{
+    audioElement.pause();
+    masterPlay.classList.remove('fa-circle-pause');
+    masterPlay.classList.add('fa-circle-play');
+    var classlisting = document.getElementsByClassName("active")[0];
+    
+   classlisting.classList.remove('fa-circle-pause');
+   classlisting.classList.add('fa-circle-play');
+    songitemplay.forEach((element,i)=>{
+
+       
+        // element.classList.remove('fa-circle-play');
+        // element.classList.add('fa-circle-pause');
+})
+    gif.style.opacity = 0;
+}
+
+})
+
+// listner to events
+
+audioElement.addEventListener("timeupdate",()=>
+{
+   // update seekbar
+    var progress = parseInt((audioElement.currentTime/audioElement.duration)*100) || 0 ;
+ 
+    progressBar.value = progress
+   
+})
+
+progressBar.addEventListener("change",()=>{
+
+audioElement.currentTime = progressBar.value * audioElement.duration/100;
+
+
+
+})
+
+
+ var playMakerAll = ()=>{
+    Array.from(document.getElementsByClassName("songitemplay")).forEach((elements)=>{
+        elements.classList.remove('active');
+        elements.classList.remove("fa-circle-pause");
+        elements.classList.add("fa-circle-play");
+    
+ })}
+ 
+
+Array.from(document.getElementsByClassName("songitemplay")).forEach((elements)=>{
+
+    elements.addEventListener("click",(e)=>{
+        playMakerAll();
+        // console.log(audioElement.paused);
+        // console.log(audioElement.currentTime);
+        // console.log(progressBar.value);
+        // console.log(audioElement.duration);
+        // console.log('test');
+        if(audioElement.paused || audioElement.currentTime <= 0){
+            console.log(audioElement.paused);
+            console.log(audioElement.currentTime);  
+           e.target.classList.remove("fa-circle-play");
+        e.target.classList.add("fa-circle-pause");
+        e.target.classList.remove('active');
+        e.target.classList.add('active');
+        songIndex = parseInt(e.target.id);
+        audioElement.src = songIndex+".mp3";
+        audioElement.play();
+        // audioElement.currentTime = 0;
+        masterPlay.classList.remove('fa-circle-play');
+    masterPlay.classList.add('fa-circle-pause');
+     gif.style.opacity = 1;
+     mastersongkey.innerText = songs[songIndex-1].songName;
+    }else{
+        audioElement.pause(); 
+        var progress_bar = parseInt((audioElement.currentTime/audioElement.duration)*100) || 0 ;
+        
+        audioElement.currentTime = progress_bar * (audioElement.duration / 100);
+        console.log(audioElement.currentTime);
+        e.target.classList.remove("fa-circle-pause");
+        e.target.classList.add("fa-circle-play");
+        e.target.classList.remove('active');
+        songIndex = parseInt(e.target.id);
+        audioElement.src = songIndex+".mp3";
+        // audioElement.pause();
+        // audioElement.currentTime = progressBar.value * audioElement.duration/100;
+        // masterPlay.classList.remove('fa-circle-pause');
+    masterPlay.classList.add('fa-circle-play');
+     gif.style.opacity = 0;
+     mastersongkey.innerText = songs[songIndex-1].songName;
+     
+    }
+
+})
+
+
+
+})
+
+
+document.getElementById("previous").addEventListener("click",()=>{
+
+    if(songIndex<=1){
+
+        songIndex = 1
+    }else{
+
+        songIndex -= 1
+        
+        
+    }
+    // playMakerAll();
+    audioElement.src = songIndex+".mp3";
+    audioElement.play();
+    audioElement.currentTime = 0;
+    masterPlay.classList.remove('fa-circle-play');
+masterPlay.classList.add('fa-circle-pause');
+gif.style.opacity = 1;
+ mastersongkey.innerText = songs[songIndex-1].songName;
+ //  songitemplay.forEach((element,i)=>{
+
+       
+//     element.classList.remove('fa-circle-play');
+//     element.classList.add('fa-circle-pause');
+
+
+// })
+
+})
+
+document.getElementById("next").addEventListener("click",()=>{
+
+    if(songIndex>=10){
+
+        songIndex = 1
+    }else{
+
+        songIndex += 1
+        
+        
+    }
+    // playMakerAll();
+    audioElement.src = songIndex+".mp3";
+    audioElement.play();
+    audioElement.currentTime = 0;
+    masterPlay.classList.remove('fa-circle-play');
+masterPlay.classList.add('fa-circle-pause');
+gif.style.opacity = 1;
+ mastersongkey.innerText = songs[songIndex-1].songName;
+//  songitemplay.forEach((element,i)=>{
+
+       
+//     element.classList.remove('fa-circle-play');
+//     element.classList.add('fa-circle-pause');
+
+
+// })
+
+})
+
+
+
